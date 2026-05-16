@@ -41,7 +41,7 @@ Platform ini memungkinkan warga untuk melaporkan permasalahan di lingkungan mere
 
 ---
 
-## 🎬 Demo Aplikasi
+## 🎬 Demo Website
 
 <p align="center">
   <a href="">
