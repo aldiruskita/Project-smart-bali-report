@@ -40,7 +40,7 @@ Platform ini memungkinkan warga untuk melaporkan permasalahan di lingkungan mere
 ## 🎬 Demo Aplikasi
 
 <p align="center">
-  <a href="https://github.com/aldiruskita/Project-smart-bali-report/blob/f72f06c061395b64e83560fdc63b4da6ec08429f/Demo%20Aplikasi%20UTS.mp4">
+  <a href="">
     <img src="https://img.shields.io/badge/▶️_Lihat_Demo_Aplikasi-Click_Here-success?style=for-the-badge" alt="Demo Aplikasi">
   </a>
 </p>
