@@ -37,6 +37,20 @@ Platform ini memungkinkan warga untuk melaporkan permasalahan di lingkungan mere
 
 ---
 
+## 🎬 Demo Aplikasi
+
+<p align="center">
+  <a href="https://github.com/aldiruskita/Project-smart-bali-report/blob/f72f06c061395b64e83560fdc63b4da6ec08429f/Demo%20Aplikasi%20UTS.mp4">
+    <img src="https://img.shields.io/badge/▶️_Lihat_Demo_Aplikasi-Click_Here-success?style=for-the-badge" alt="Demo Aplikasi">
+  </a>
+</p>
+
+<p align="center">
+  <em>Klik tombol di atas untuk melihat video demo aplikasi Smart Bali Report.</em>
+</p>
+
+---
+
 ## ✨ Fitur Utama
 
 ### 🏠 Halaman Beranda (Landing Page)
@@ -116,7 +130,7 @@ Platform ini memungkinkan warga untuk melaporkan permasalahan di lingkungan mere
 
 ## 🗄️ Struktur Database
 
-```
+```bash
 ├── users                 # Pengguna (warga, petugas, admin_desa, super_admin)
 ├── categories            # Kategori pengaduan
 ├── reports               # Laporan warga
@@ -162,50 +176,55 @@ Platform ini memungkinkan warga untuk melaporkan permasalahan di lingkungan mere
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/username/smart-bali-report.git
-cd smart-bali-report
+git clone https://github.com/aldiruskita/Project-smart-bali-report.git
 
-# 2. Install dependensi PHP
+# 2. Masuk ke folder project
+cd Project-smart-bali-report
+
+# 3. Install dependensi PHP
 composer install
 
-# 3. Salin file environment
+# 4. Salin file environment
 cp .env.example .env
 
-# 4. Generate application key
+# 5. Generate application key
 php artisan key:generate
 
-# 5. Konfigurasi database di file .env
-#    Sesuaikan DB_DATABASE, DB_USERNAME, DB_PASSWORD
+# 6. Konfigurasi database pada file .env
 
-# 6. Jalankan migrasi database
+# 7. Jalankan migrasi database
 php artisan migrate
 
-# 7. (Opsional) Jalankan seeder untuk data dummy
+# 8. Jalankan seeder (opsional)
 php artisan db:seed
 
-# 8. Buat symbolic link untuk storage
+# 9. Buat symbolic link storage
 php artisan storage:link
 
-# 9. Install dependensi frontend
+# 10. Install dependency frontend
 npm install
 
-# 10. Build asset frontend
+# 11. Build asset frontend
 npm run build
 ```
 
 ### Menjalankan Aplikasi
 
 ```bash
-# Menjalankan semua service sekaligus (server + queue + vite)
+# Menjalankan seluruh service sekaligus
 composer dev
 
-# Atau jalankan secara manual:
-php artisan serve          # Laravel server
-php artisan queue:listen   # Background queue
-npm run dev                # Vite dev server
+# Atau manual
+php artisan serve
+php artisan queue:listen
+npm run dev
 ```
 
-Aplikasi akan berjalan di: **http://localhost:8000**
+Aplikasi berjalan di:
+
+```bash
+http://localhost:8000
+```
 
 ---
 
@@ -223,14 +242,10 @@ Aplikasi akan berjalan di: **http://localhost:8000**
 
 ## ⚙️ Konfigurasi Environment
 
-Variabel penting di file `.env`:
-
 ```env
-# Aplikasi
 APP_NAME="Smart Bali Report"
 APP_URL=http://localhost:8000
 
-# Database
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -238,125 +253,34 @@ DB_DATABASE=porto1
 DB_USERNAME=root
 DB_PASSWORD=
 
-# AI Classification (OpenAI)
 AI_API_KEY=your-openai-api-key
 
-# Queue (untuk background jobs)
 QUEUE_CONNECTION=database
-```
-
----
-
-## 📂 Struktur Direktori Proyek
-
-```
-smart-bali-report/
-├── app/
-│   ├── Http/
-│   │   ├── Controllers/
-│   │   │   ├── Admin/                  # Controller panel admin
-│   │   │   │   ├── DashboardController.php
-│   │   │   │   ├── ReportManagementController.php
-│   │   │   │   └── UserManagementController.php
-│   │   │   ├── Auth/                   # Controller autentikasi
-│   │   │   │   ├── LoginController.php
-│   │   │   │   └── RegisterController.php
-│   │   │   ├── CommentController.php   # Komentar laporan
-│   │   │   ├── NotificationController.php
-│   │   │   ├── ProfileController.php   # Profil pengguna
-│   │   │   ├── RatingController.php    # Rating laporan
-│   │   │   ├── ReportController.php    # CRUD laporan + AI classify
-│   │   │   ├── TaskController.php      # Tugas petugas lapangan
-│   │   │   └── VoteController.php      # Voting laporan
-│   │   └── Middleware/                 # Custom middleware (role-based)
-│   ├── Models/                         # Eloquent Models
-│   │   ├── Assignment.php
-│   │   ├── Category.php
-│   │   ├── Comment.php
-│   │   ├── Rating.php
-│   │   ├── Report.php
-│   │   ├── ReportLog.php
-│   │   ├── ReportMedia.php
-│   │   ├── Task.php
-│   │   ├── TaskAttachment.php
-│   │   ├── TaskComment.php
-│   │   ├── User.php
-│   │   └── Vote.php
-│   ├── Providers/
-│   └── Services/                       # Service layer (AI, etc.)
-├── database/
-│   ├── migrations/                     # 14 migration files
-│   └── seeders/                        # Data seeder
-├── resources/
-│   └── views/
-│       ├── admin/                      # Views panel admin
-│       │   ├── dashboard.blade.php
-│       │   ├── reports.blade.php
-│       │   └── users.blade.php
-│       ├── auth/                       # Views login & register
-│       ├── layouts/                    # Layout utama
-│       │   ├── app.blade.php
-│       │   └── admin.blade.php
-│       ├── notifications/              # Views notifikasi
-│       ├── officer/                    # Views panel petugas
-│       │   ├── dashboard.blade.php
-│       │   └── task-detail.blade.php
-│       ├── profile/                    # Views profil
-│       ├── reports/                    # Views laporan
-│       │   ├── create.blade.php
-│       │   ├── index.blade.php
-│       │   ├── show.blade.php
-│       │   └── my-reports.blade.php
-│       ├── home.blade.php              # Halaman beranda
-│       └── welcome.blade.php
-├── routes/
-│   └── web.php                         # Semua route definisi
-├── public/                             # Asset publik
-├── composer.json
-├── package.json
-└── vite.config.js
-```
-
----
-
-## 🔄 Alur Kerja Sistem
-
-```
-┌─────────────┐     ┌──────────────┐     ┌────────────────┐     ┌──────────────┐
-│   WARGA     │────▶│    ADMIN     │────▶│   PETUGAS      │────▶│   WARGA      │
-│             │     │              │     │   LAPANGAN     │     │              │
-│ Buat Laporan│     │ Verifikasi & │     │ Terima Tugas & │     │ Pantau &     │
-│ + Upload    │     │ Assign       │     │ Update Progress│     │ Rating       │
-│   Foto      │     │ Petugas      │     │ + Dokumentasi  │     │              │
-└─────────────┘     └──────────────┘     └────────────────┘     └──────────────┘
-      │                    │                      │                     │
-      ▼                    ▼                      ▼                     ▼
-  [PENDING]          [VERIFIED]            [IN PROGRESS]            [DONE]
-                    / [REJECTED]           / [REJECTED]           [VERIFIED]
 ```
 
 ---
 
 ## 🎨 Desain & UI/UX
 
-- **Tema Warna**: Terinspirasi dari alam Bali — hijau tua (`#1A3A32`), emas (`#D4AF37`), merah bata (`#a23e23`)
-- **Typography**: Noto Serif (heading) + Public Sans (body)
-- **Glassmorphism**: Efek kaca pada card dengan `backdrop-filter: blur()`
-- **Responsive**: Mendukung desktop, tablet, dan mobile
-- **Micro-animations**: Hover effects dan transisi halus pada elemen interaktif
-- **Material Icons**: Google Material Symbols Rounded
+- Tema warna terinspirasi dari alam Bali
+- Responsive untuk desktop, tablet, dan mobile
+- Glassmorphism UI
+- Material Symbols Rounded
+- Micro animations & smooth transitions
+- Modern dashboard layout dengan Bento Grid
 
 ---
 
 ## 📄 Lisensi
 
-Proyek ini dilisensikan di bawah [MIT License](https://opensource.org/licenses/MIT).
+Proyek ini menggunakan lisensi [MIT License](https://opensource.org/licenses/MIT).
 
 ---
 
 <p align="center">
   Dibuat dengan ❤️ oleh <strong>Made Aldi Ruskita Salahin</strong>
 </p>
+
 <p align="center">
   <em>Mewujudkan Bali yang bersih, aman, dan tertata melalui teknologi.</em>
 </p>
