@@ -1,7 +1,6 @@
 <p align="center">
-  <img src="public/images/hero-bali.png" width="600" alt="Smart Bali Report Banner">
+  <img src="https://github.com/aldiruskita/Project-smart-bali-report/blob/2664a5789dc2c0aa38bad56f895ac0224e27e59a/Foto_Smart_Bali_Report.png" width="600" alt="Smart Bali Report Banner">
 </p>
-
 <h1 align="center">🌴 Smart Bali Report — Sistem Citizen Reporting</h1>
 
 <p align="center">
