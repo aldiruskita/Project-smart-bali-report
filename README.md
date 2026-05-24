@@ -275,9 +275,6 @@ QUEUE_CONNECTION=database
 
 ---
 
-## 📄 Lisensi
-
-Proyek ini menggunakan lisensi [MIT License](https://opensource.org/licenses/MIT).
 
 ---
 
